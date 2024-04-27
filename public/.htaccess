@@ -1,0 +1,12 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    Options +FollowSymlinks
+    RewriteEngine on
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # RewriteCond %{REQUEST_URI} !^/public/css/output.css
+    # RewriteCond %{REQUEST_URI} !^/public/css/input.css
+    RewriteRule ^([\s\S]*)$ index.php?$1 [L]
+</IfModule>
