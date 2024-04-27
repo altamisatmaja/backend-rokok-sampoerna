@@ -8,7 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="<?= BASE_URL . '/public/css/output.css' ?>" rel="stylesheet">
     <title><?= $title ?></title>
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>

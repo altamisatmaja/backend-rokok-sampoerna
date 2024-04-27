@@ -17,8 +17,6 @@ class FormModels extends Model
 
     public function getAlls()
     {
-        // $query = 'SELECT * FROM barang';
-        // return $this->qry($query)->fetchAll();
         return $this->get()->fetchAll();
 
     }

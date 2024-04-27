@@ -25,6 +25,8 @@ class Routes
         $router->post('/crud/edit_saham', ['FormController', 'edit_saham']);
         $router->post('/crud/insert_saham', ['FormController', 'insert_saham']);
 
+        $router->get('/rokok', ['RokokController', 'index']);
+
         $router->run();
     }
 }
