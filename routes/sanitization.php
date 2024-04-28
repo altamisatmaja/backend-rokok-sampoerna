@@ -55,6 +55,7 @@ class Sanitization
                     $inputs[$key] = $tempvar;
                 }
             }
+            
             $options = array_map(fn($field) => $filters[trim($field)], $fields);
             $data = filter_var_array($inputs, $options);
         } else {
