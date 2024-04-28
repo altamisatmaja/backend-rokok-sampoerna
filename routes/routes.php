@@ -27,6 +27,7 @@ class Routes
 
         $router->get('/rokok', ['RokokController', 'index']);
         $router->get('/rokok/add', ['RokokController', 'create']);
+        $router->post('/rokok/store', ['RokokController', 'store']);
 
         $router->run();
     }

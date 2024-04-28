@@ -1,18 +1,3 @@
-<?php
-
-$data = Message::getData();
-$namaRokok = '';
-$hargaPack = '';
-$type = '';
-
-if ($data) {
-    $namaRokok = $data['nama_rokok'];
-    $hargaPack = $data['harga_pack'];
-    $type = $data['type'];
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,32 +21,30 @@ if ($data) {
                 <main>
                     <div class="flex items-center justify-center p-12">
                         <div class="mx-auto w-full">
-                            <form action="https://formbold.com/s/FORM_ID" method="POST">
+                            <form action="<?= BASE_URL . '/rokok/store' ?>" method="POST">
                                 <div class="mb-5">
                                     <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
                                         Nama rokok
                                     </label>
-                                    <input type="text" name="name" id="name" placeholder="Full Name"
+                                    <input type="text" value="<?= $namaRokok  ?>" name="nama_rokok" id="nama_rokok" placeholder="Masukkan nama rokok"
                                         class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                                 </div>
                                 <div class="mb-5">
-                                    <label for="email" class="mb-3 block text-base font-medium text-[#07074D]">
+                                    <label for="harga_pack" class="mb-3 block text-base font-medium text-[#07074D]">
                                         Harga Pack
                                     </label>
-                                    <input type="email" name="email" id="email" placeholder="example@domain.com"
+                                    <input type="number" name="harga_pack" id="harga_pack" placeholder="Rp 100000"
                                         class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                                 </div>
                                 <div class="mb-5">
-                                    <label for="subject" class="mb-3 block text-base font-medium text-[#07074D]">
+                                    <label for="type" class="mb-3 block text-base font-medium text-[#07074D]">
                                         Tipe Rokok
                                     </label>
-                                    <select id="countries"
+                                    <select id="type" name="type"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                        <option selected>Choose a country</option>
-                                        <option value="US">United States</option>
-                                        <option value="CA">Canada</option>
-                                        <option value="FR">France</option>
-                                        <option value="DE">Germany</option>
+                                        <option selected>Pilih tipe rokok</option>
+                                        <option value="Filter">Filter</option>
+                                        <option value="Kretek">Kretek</option>
                                     </select>
                                 </div>
                                 <div>
