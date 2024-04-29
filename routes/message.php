@@ -2,10 +2,9 @@
 
 class Message
 {
-    public static function setFlash($icon, $title, $text, $data = [])
+    public static function setFlash($title, $text, $data = [])
     {
         $_SESSION['flash'] = [
-            'icon' => $icon,
             'title' => $title,
             'text' => $text,
             'data' => $data,
@@ -23,7 +22,6 @@ class Message
     public static function flash()
 {
     if (isset($_SESSION['flash'])) {
-        $icon = $_SESSION['flash']['icon'];
         $title = $_SESSION['flash']['title'];
         $text = $_SESSION['flash']['text'];
 

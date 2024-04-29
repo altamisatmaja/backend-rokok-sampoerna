@@ -35,7 +35,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" target="_blank"
+                        <a href="<?= BASE_URL . '/rokok' ?>"
                             class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
                             <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
                                 fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +47,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" target="_blank"
+                        <a href="#"
                             class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
                             <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
                                 fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -98,7 +98,7 @@
                     </li>
                 </ul>
                 <div class="space-y-2 pt-2">
-                    <a href="#" target="_blank"
+                    <a href="#"
                         class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 group transition duration-75 flex items-center p-2">
                         <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
                             fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -108,7 +108,7 @@
                         </svg>
                         <span class="ml-3">Setting</span>
                     </a>
-                    <a href="#" target="_blank"
+                    <a href="#"
                         class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 group transition duration-75 flex items-center p-2">
                         <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
                             fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
