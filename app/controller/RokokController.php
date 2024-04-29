@@ -50,4 +50,9 @@ class RokokController extends Controller
             echo 'Permintaan tidak valid.';
         }
     }
+
+    public function show($id){
+        var_dump($_GET);
+        $this->view('pages/admin/rokok/edit');
+    }
 }

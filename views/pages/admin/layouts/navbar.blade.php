@@ -17,10 +17,10 @@
                             clip-rule="evenodd"></path>
                     </svg>
                 </button>
-                <a href="#" class="text-xl font-bold flex items-center lg:ml-2.5">
-                    <img src="https://demo.themesberg.com/windster/images/logo.svg" class="h-6 mr-2"
-                        alt="Windster Logo">
-                    <span class="self-center whitespace-nowrap">Windster</span>
+                <a href="#" class="text-xl self-center whitespace-nowrap font-bold flex items-center lg:ml-2.5">
+                    <img src="https://seeklogo.com/images/H/hm-sampoerna-logo-64BA2D55A9-seeklogo.com.png" class="h-12 mr-2"
+                        alt="sampoernalogo">
+                    <span class="self-center whitespace-nowrap">Sampoerna</span>
                 </a>
                 <form action="#" method="GET" class="hidden lg:block lg:pl-32">
                     <label for="topbar-search" class="sr-only">Search</label>
@@ -35,7 +35,7 @@
                         </div>
                         <input type="text" name="email" id="topbar-search"
                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full pl-10 p-2.5"
-                            placeholder="Search">
+                            placeholder="Cari">
                     </div>
                 </form>
             </div>
@@ -51,16 +51,11 @@
                     </svg>
                 </button>
                 <div class="hidden lg:flex items-center">
-                    <span class="text-base font-normal text-gray-500 mr-5">Open source ❤️</span>
-                    <div class="-mb-1">
-                        <a class="github-button" href="#"
-                            data-color-scheme="no-preference: dark; light: light; dark: light;"
-                            data-icon="octicon-star" data-size="large" data-show-count="true"
-                            aria-label="Star themesberg/windster-tailwind-css-dashboard on GitHub">Star</a>
-                    </div>
+                    <span class="text-base font-normal text-gray-500 mr-5">Kelola Gudang Rokok Sampoerna</span>
+                    
                 </div>
                 <a href="#"
-                    class="hidden sm:inline-flex ml-5 text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center mr-3">
+                    class="hidden sm:inline-flex ml-5 text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center mr-3">
                     <svg class="svg-inline--fa fa-gem -ml-1 mr-2 h-4 w-4" aria-hidden="true" focusable="false"
                         data-prefix="fas" data-icon="gem" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 512 512">
@@ -68,7 +63,7 @@
                             d="M378.7 32H133.3L256 182.7L378.7 32zM512 192l-107.4-141.3L289.6 192H512zM107.4 50.67L0 192h222.4L107.4 50.67zM244.3 474.9C247.3 478.2 251.6 480 256 480s8.653-1.828 11.67-5.062L510.6 224H1.365L244.3 474.9z">
                         </path>
                     </svg>
-                    Upgrade to Pro
+                    Administrator
                 </a>
             </div>
         </div>
