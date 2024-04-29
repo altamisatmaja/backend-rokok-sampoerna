@@ -67,6 +67,11 @@
 
                                                     <th scope="col"
                                                         class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500">
+                                                        Gambar Rokok
+                                                    </th>
+
+                                                    <th scope="col"
+                                                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500">
                                                         Aksi
                                                     </th>
 
@@ -82,6 +87,7 @@
                                                             <span><?= $no++ ?></span>
                                                         </div>
                                                     </td>
+                                                    
                                                     <td class="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">
                                                         <?= $data['nama_rokok'] ?></td>
                                                     <td
@@ -100,6 +106,13 @@
                                                         </div>
                                                     </td>
 
+                                                    <td
+                                                        class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
+                                                        <div class="inline-flex items-center gap-x-3">
+                                                            <span><?= $data['gambar_rokok'] ?></span>
+                                                        </div>
+                                                    </td>
+
                                                     <td class="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">
                                                         <?= $data['type'] ?></td>
                                                     <td class="px-4 py-4 text-sm whitespace-nowrap">
@@ -110,7 +123,6 @@
                                                                     Edit
                                                                 </button>
                                                             </a>
-
                                                             <button
                                                                 class="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
                                                                 Hapus

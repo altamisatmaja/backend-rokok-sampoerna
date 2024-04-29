@@ -24,6 +24,7 @@ class Rokok extends Model {
             'nama_rokok' => $data['nama_rokok'],
             'harga_pack' => $data['harga_pack'],
             'type' => $data['type'],
+            'gambar_rokok' => $data['gambar_rokok'],
         ];
 
         return $this->insertData($table);
@@ -33,20 +34,20 @@ class Rokok extends Model {
      * Show by id data rokok
      */
     public function getbyid($id){
-        return $this->get(['id_rokok' => 'id'])->fetch();
+        return $this->get(['id_rokok' => $id])->fetch();
     }
 
     /**
      * Update data rokok
      */
-    public function update($data){
+    public function updateDataRokok($data){
         $table = [
             'nama_rokok' => $data['nama_rokok'],
             'harga_pack' => $data['harga_pack'],
             'type' => $data['type'],
         ];
         $key = [
-            'id_rokok' => $data['id'],
+            'id_rokok' => $data['id_rokok'],
         ];
 
         return $this->updateData($table, $key);

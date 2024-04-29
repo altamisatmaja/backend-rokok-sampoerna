@@ -77,30 +77,59 @@ class Model
         return $this->qry($query, $columnValue);
     }
 
-    public function updateData($data = array(), $param=array()){
-        if(empty($data)){
+    public function updateData($data = array(), $param = array())
+  {
+    if (empty($data)) {
+      return false;
+    }
+    $columnValue = [];
+    $kolom = [];
+    $query = "UPDATE {$this->tableName} ";
+    foreach ($data as $key => $value) {
+      array_push($kolom, $key . "= ? ");
+      array_push($columnValue, $value);
+    }
+    $kolom = implode(", ", $kolom);
+    $query = $query . " SET $kolom WHERE 1=1 ";
+    $whereColumn = [];
+    foreach ($param as $key => $value) {
+      array_push($whereColumn, "AND {$key} = ?");
+      array_push($columnValue, $value);
+    }
+    $whereColumn = implode(", ", $whereColumn);
+    $query = $query . $whereColumn;
+    return $this->qry($query, $columnValue);
+  }
+
+
+    public function update($data = array(), $param = array())
+    {
+        if (empty($data) || empty($param)) {
             return false;
         }
-        $columnValue = [];
-        $kolom = [];
-        $query = "UPDATE INTO {this->tableName}";
 
-        foreach ($data as $key => $value){
-            array_push($kolom, $key ."= ?");
+        $columnValue = [];
+        $setColumns = [];
+        $whereColumns = [];
+
+        foreach ($data as $key => $value) {
+            array_push($setColumns, "$key = ?");
             array_push($columnValue, $value);
         }
 
-        $kolom = implode(", ", $kolom);
-        $query = $query." SET $kolom WHERE 1 = 1 ";
-        $whereColumn = [];
-        foreach($param as $key => $value){
-            array_push($whereColumn, "AND {$key} = ?");
+        foreach ($param as $key => $value) {
+            array_push($whereColumns, "$key = ?");
             array_push($columnValue, $value);
-        } 
-        $whereColumn = implode(", ", $whereColumn);
-        $query = $query.$whereColumn;
+        }
+
+        $setColumns = implode(", ", $setColumns);
+        $whereColumns = implode(" AND ", $whereColumns);
+
+        $query = "UPDATE {$this->tableName} SET $setColumns WHERE $whereColumns";
+
         return $this->qry($query, $columnValue);
     }
+
 
     public function deleteData($param = array()){
         if(empty($param)){

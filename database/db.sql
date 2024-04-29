@@ -26,6 +26,7 @@ CREATE TABLE `recepient` (
 CREATE TABLE `rokok` (
   `id_rokok` int(11) NOT NULL,
   `nama_rokok` varchar(255),
+  `gambar_rokok` varchar(255),
   `harga_pack` integer,
   `type` ENUM('Filter', 'Kretek')
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

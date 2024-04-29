@@ -24,19 +24,22 @@
                     <?= $dataa ?>
                     <div class="flex items-center justify-center p-12">
                         <div class="mx-auto w-full">
-                            <form action="<?= BASE_URL . '/rokok/edit' ?>" method="POST">
+                            <form action="<?= BASE_URL . '/rokok/edit'.$rokok['id_rokok'] ?>" method="POST">
                                 <div class="mb-5">
+                                    <input class="" value="<?= $rokok['id_rokok'] ?>" type="text">
                                     <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
                                         Nama rokok
                                     </label>
-                                    <input type="text" value="<?= $namaRokok  ?>" name="nama_rokok" id="nama_rokok" placeholder="Masukkan nama rokok"
+                                    <input type="text" value="<?= $rokok['nama_rokok'] ?>" name="nama_rokok"
+                                        id="nama_rokok" placeholder="Masukkan nama rokok"
                                         class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                                 </div>
                                 <div class="mb-5">
                                     <label for="harga_pack" class="mb-3 block text-base font-medium text-[#07074D]">
                                         Harga Pack
                                     </label>
-                                    <input type="number" name="harga_pack" id="harga_pack" placeholder="Rp 100000"
+                                    <input value="<?= $rokok['harga_pack'] ?>" type="number" name="harga_pack"
+                                        id="harga_pack" placeholder="Rp 100000"
                                         class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                                 </div>
                                 <div class="mb-5">
@@ -45,11 +48,12 @@
                                     </label>
                                     <select id="type" name="type"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 py-3 px-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full">
-                                        <option selected>Pilih tipe rokok</option>
-                                        <option value="Filter">Filter</option>
-                                        <option value="Kretek">Kretek</option>
+                                        <option value="">Pilih tipe rokok</option>
+                                        <option value="Filter" <?= $rokok['type'] == 'Filter' ? 'selected' : ''; ?>>Filter</option>
+                                        <option value="Kretek" <?= $rokok['type'] == 'Kretek' ? 'selected' : ''; ?>>Kretek</option>
                                     </select>
                                 </div>
+
                                 <div>
                                     <button type="submit"
                                         class="hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none">

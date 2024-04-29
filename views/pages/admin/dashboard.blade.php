@@ -1,8 +1,3 @@
-<?php
-Message::flash();
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +19,9 @@ Message::flash();
             <div class="bg-gray-900 opacity-50 hidden fixed inset-0 z-10" id="sidebarBackdrop"></div>
             <div id="main-content" class="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-64">
                 <main>
+                    <?php
+                    Message::flash();
+                    ?>
                     <?= $title ?>
                 </main>
             </div>

@@ -21,12 +21,13 @@
                 <main>
                     <div class="flex items-center justify-center p-12">
                         <div class="mx-auto w-full">
-                            <form action="<?= BASE_URL . '/rokok/store' ?>" method="POST">
+                            <form action="<?= BASE_URL . '/rokok/store' ?>" method="POST" enctype="multipart/form-data">
                                 <div class="mb-5">
                                     <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
                                         Nama rokok
                                     </label>
-                                    <input type="text" value="<?= $namaRokok  ?>" name="nama_rokok" id="nama_rokok" placeholder="Masukkan nama rokok"
+                                    <input type="text" value="<?= $namaRokok ?>" name="nama_rokok" id="nama_rokok"
+                                        placeholder="Masukkan nama rokok"
                                         class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                                 </div>
                                 <div class="mb-5">
@@ -46,6 +47,29 @@
                                         <option value="Filter">Filter</option>
                                         <option value="Kretek">Kretek</option>
                                     </select>
+                                </div>
+                                <div class="mb-5">
+                                    <label class="mb-5 block text-xl font-semibold text-[#07074D]">
+                                        Upload gambar
+                                    </label>
+                                    <div class="mb-8">
+                                        <input type="file" name="gambar_rokok" id="gambar_rokok" class="sr-only" />
+                                        <label for="gambar_rokok"
+                                            class="relative flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center">
+                                            <div>
+                                                <span class="mb-2 block text-xl font-semibold text-[#07074D]">
+                                                    Tambah gambar disini
+                                                </span>
+                                                <span class="mb-2 block text-base font-medium text-[#6B7280]">
+                                                    atau
+                                                </span>
+                                                <span
+                                                    class="inline-flex rounded py-2 px-7 text-base font-medium text-[#07074D]">
+                                                    Cari
+                                                </span>
+                                            </div>
+                                        </label>
+                                    </div>
                                 </div>
                                 <div>
                                     <button type="submit"
