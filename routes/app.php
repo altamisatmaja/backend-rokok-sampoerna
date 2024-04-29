@@ -2,7 +2,7 @@
 
 class App
 {
-    private $controllerFile = 'HomeController';
+    private $controllerFile = 'PageController';
     private $controllerMethod = 'index';
     private $params = [];
 

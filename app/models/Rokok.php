@@ -32,7 +32,7 @@ class Rokok extends Model {
     /**
      * Show by id data rokok
      */
-    public function show($id){
+    public function getbyid($id){
         return $this->get(['id_rokok' => 'id'])->fetch();
     }
 

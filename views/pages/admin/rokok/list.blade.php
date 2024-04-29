@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="<?= BASE_URL . '/public/css/output.css' ?>" rel="stylesheet">
-    <link rel="shortcut icon" href="https://seeklogo.com/images/H/hm-sampoerna-logo-64BA2D55A9-seeklogo.com.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://seeklogo.com/images/H/hm-sampoerna-logo-64BA2D55A9-seeklogo.com.png"
+        type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css" />
     <title>Sampoerna | <?= $title ?></title>
@@ -20,6 +21,18 @@
             <div class="bg-gray-900 opacity-50 hidden fixed inset-0 z-10" id="sidebarBackdrop"></div>
             <div id="main-content" class="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-64">
                 <main>
+                    <div class="flex flex-wrap items-center pt-8">
+                        <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                            <h3 class="font-semibold text-black text-xl">Kategori Hewan</h3>
+                        </div>
+                        <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+                            <a href="<?= BASE_URL . '/rokok/add' ?>">
+                                <button
+                                    class="tambah-data-categoryproduct bg-red-500 text-white active:bg-primarybase text-xs font-bold px-3 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                    type="button">Tambah data</button>
+                            </a>
+                        </div>
+                    </div>
                     <section class="mt-5 container px-4 mx-auto">
                         <div class="flex flex-col">
                             <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -91,10 +104,12 @@
                                                         <?= $data['type'] ?></td>
                                                     <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                         <div class="flex items-center gap-x-6">
-                                                            <button
-                                                                class="text-gray-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
-                                                                Edit
-                                                            </button>
+                                                            <a href="<?= BASE_URL.'/rokok/update/'.$data['id_rokok'] ?>">
+                                                                <button
+                                                                    class="text-gray-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
+                                                                    Edit
+                                                                </button>
+                                                            </a>
 
                                                             <button
                                                                 class="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">

@@ -59,7 +59,18 @@ class RokokController extends Controller
     }
 
     public function show($id){
-        var_dump($_GET);
-        $this->view('pages/admin/rokok/edit');
+        try {
+            var_dump($_GET);
+            $result = $this->rokokmodels->getbyid($id);
+            var_dump($result);
+            $data = [
+                'title' => 'Edit Rokok',
+                'dataa' => $result,
+            ];
+            $this->view('pages/admin/rokok/edit', $data);
+        } catch (\Exception $e) {
+            Message::setFlash('error', 'Terjadi kesalahan: ', $e->getMessage());
+            $this->redirect('dashboard');
+        }
     }
 }
