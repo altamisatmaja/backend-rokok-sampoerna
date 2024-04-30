@@ -9,6 +9,7 @@ class Rokok extends Model {
             'nama_rokok',
             'harga_pack',
             'type',
+            'gambar_rokok',
         ]);
     }
 

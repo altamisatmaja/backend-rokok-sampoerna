@@ -34,8 +34,6 @@ class RokokController extends Controller
                 $namaRokok = $_POST['nama_rokok'];
                 $hargaPack = $_POST['harga_pack'];
                 $type = $_POST['type'];
-                $gambarRokok = $_FILES['gambar_rokok'];
-                // print_r($gambarRokok);
 
                 $extension = pathinfo($_FILES['gambar_rokok']['name'], PATHINFO_EXTENSION);
                 $namaFile = uniqid() . '.' . $extension;
@@ -43,27 +41,28 @@ class RokokController extends Controller
                 $location = $_SERVER['DOCUMENT_ROOT'] . '/backend-rokok-sampoerna/public/uploads';
                 $located = $location . '/' . $namaFile;
                 $uploaded = move_uploaded_file($tmpName, $located);
+                
                 if ($uploaded) {
-                    echo 'Berhasil terupload';
+                    $data = [
+                        'nama_rokok' => $namaRokok,
+                        'harga_pack' => $hargaPack,
+                        'type' => $type,
+                        'gambar_rokok' => $namaFile
+                    ];
+                    $result = $this->rokokmodels->store($data);
+    
+                    if ($result) {
+                        Message::setFlash('success', 'Data berhasil ditambahkan');
+                        $this->redirect('dashboard');
+                    } else {
+                        Message::setFlash('success', 'Data gagal ditambahkan');
+                        $this->redirect('rokok');
+                    }
                 } else {
-                    echo 'gagal terupload: ' . $_FILES['gambar_rokok']['error'];
+                    echo 'Permintaan tidak valid.';
                 }
 
-                $data = [
-                    'nama_rokok' => $namaRokok,
-                    'harga_pack' => $hargaPack,
-                    'type' => $type,
-                    'gambar_rokok' => $namaFile
-                ];
-                $result = $this->rokokmodels->store($data);
-
-                if ($result) {
-                    Message::setFlash('success', 'Data berhasil ditambahkan');
-                    $this->redirect('dashboard');
-                } else {
-                    Message::setFlash('success', 'Data gagal ditambahkan');
-                    $this->redirect('rokok');
-                }
+                
             } else {
                 echo 'Permintaan tidak valid.';
             }

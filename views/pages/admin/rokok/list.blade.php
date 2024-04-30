@@ -106,10 +106,9 @@
                                                         </div>
                                                     </td>
 
-                                                    <td
-                                                        class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                                                        <div class="inline-flex items-center gap-x-3">
-                                                            <span><?= $data['gambar_rokok'] ?></span>
+                                                    <td class="p-3 flex items-center justify-center">
+                                                        <div class="rounded-lg w-48 h-48">
+                                                            <img src="<?= BASE_URL ?>/public/uploads/<?= $data['gambar_rokok'] ?>" class="w-full h-full object-cover" alt="<?= $data['gambar_rokok'] ?>">
                                                         </div>
                                                     </td>
 
