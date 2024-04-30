@@ -99,25 +99,68 @@ class RokokController extends Controller
                 $hargaPack = $_POST['harga_pack'];
                 $type = $_POST['type'];
 
-                $data = [
-                    'nama_rokok' => $namaRokok,
-                    'harga_pack' => $hargaPack,
-                    'type' => $type,
-                    'id_rokok' => $id
-                ];
+                /**
+                 * Get data from user uploads
+                 */
+                $gambarRokok = $_FILES['gambar_rokok'];
+                /**
+                 * Get data from database if user doesnt edited image
+                 */
+                $result = $this->rokokmodels->getbyid($id);
 
-                var_dump($data);
-
-                $result = $this->rokokmodels->updateDataRokok($data);
-
-                if ($result) {
-                    echo 'Error';
-                    var_dump($data);
-                    $this->redirect('dashboard');
+                if (!empty($gambarRokok['name'])) {
+                    $oldfiles = $result['gambar_rokok'];
+                    $location = $_SERVER['DOCUMENT_ROOT'] . '/backend-rokok-sampoerna/public/uploads';
+                    $located = $location . '/' . $oldfiles;
+                    if(file_exists($located)){
+                        $deleted = unlink($located);
+                        if($deleted){
+                            $extension = pathinfo($_FILES['gambar_rokok']['name'], PATHINFO_EXTENSION);
+                            $namaFile = uniqid() . '.' . $extension;
+                            $tmpName = $_FILES['gambar_rokok']['tmp_name'];
+                            $location = $_SERVER['DOCUMENT_ROOT'] . '/backend-rokok-sampoerna/public/uploads';
+                            $located = $location . '/' . $namaFile;
+                            $uploaded = move_uploaded_file($tmpName, $located);
+                            if($uploaded){
+                                $data = [
+                                    'nama_rokok' => $namaRokok,
+                                    'harga_pack' => $hargaPack,
+                                    'type' => $type,
+                                    'id_rokok' => $id,
+                                    'gambar_rokok' => $namaFile,
+                                ];
+    
+                                $result = $this->rokokmodels->updateDataRokok($data);
+    
+                                if ($result) {
+                                    Message::setFlash('success', 'Data berhasil ditambahkan');
+                                    $this->redirect('dashboard');
+                                } else {
+                                    Message::setFlash('success', 'Data gagal ditambahkan');
+                                    $this->redirect('rokok');
+                                }
+                            } 
+                        }  
+                    } 
                 } else {
-                    echo 'Error';
-                    var_dump($data);
-                    $this->redirect('rokok');
+                    $gambarRokokOld = $result['gambar_rokok'];
+                    $data = [
+                        'nama_rokok' => $namaRokok,
+                        'harga_pack' => $hargaPack,
+                        'type' => $type,
+                        'id_rokok' => $id,
+                        'gambar_rokok' => $gambarRokokOld,
+                    ];
+
+                    $result = $this->rokokmodels->updateDataRokok($data);
+
+                    if ($result) {
+                        Message::setFlash('success', 'Data berhasil ditambahkan');
+                        $this->redirect('dashboard');
+                    } else {
+                        Message::setFlash('success', 'Data gagal ditambahkan');
+                        $this->redirect('rokok');
+                    }
                 }
             } else {
                 echo 'Permintaan tidak valid.';

@@ -78,28 +78,28 @@ class Model
     }
 
     public function updateData($data = array(), $param = array())
-  {
-    if (empty($data)) {
-      return false;
+    {
+        if (empty($data)) {
+            return false;
+        }
+        $columnValue = [];
+        $kolom = [];
+        $query = "UPDATE {$this->tableName} ";
+        foreach ($data as $key => $value) {
+            array_push($kolom, $key . "= ? ");
+            array_push($columnValue, $value);
+        }
+        $kolom = implode(", ", $kolom);
+        $query = $query . " SET $kolom WHERE 1=1 ";
+        $whereColumn = [];
+        foreach ($param as $key => $value) {
+            array_push($whereColumn, "AND {$key} = ?");
+            array_push($columnValue, $value);
+        }
+        $whereColumn = implode(", ", $whereColumn);
+        $query = $query . $whereColumn;
+        return $this->qry($query, $columnValue);
     }
-    $columnValue = [];
-    $kolom = [];
-    $query = "UPDATE {$this->tableName} ";
-    foreach ($data as $key => $value) {
-      array_push($kolom, $key . "= ? ");
-      array_push($columnValue, $value);
-    }
-    $kolom = implode(", ", $kolom);
-    $query = $query . " SET $kolom WHERE 1=1 ";
-    $whereColumn = [];
-    foreach ($param as $key => $value) {
-      array_push($whereColumn, "AND {$key} = ?");
-      array_push($columnValue, $value);
-    }
-    $whereColumn = implode(", ", $whereColumn);
-    $query = $query . $whereColumn;
-    return $this->qry($query, $columnValue);
-  }
 
 
     public function update($data = array(), $param = array())
