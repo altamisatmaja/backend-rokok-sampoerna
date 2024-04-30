@@ -46,6 +46,7 @@ class Rokok extends Model {
             'nama_rokok' => $data['nama_rokok'],
             'harga_pack' => $data['harga_pack'],
             'type' => $data['type'],
+            'gambar_rokok' => $data['gambar_rokok'],
         ];
         $key = [
             'id_rokok' => $data['id_rokok'],

@@ -87,7 +87,7 @@
                                                             <span><?= $no++ ?></span>
                                                         </div>
                                                     </td>
-                                                    
+
                                                     <td class="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">
                                                         <?= $data['nama_rokok'] ?></td>
                                                     <td
@@ -108,7 +108,9 @@
 
                                                     <td class="p-3 flex items-center justify-center">
                                                         <div class="rounded-lg w-48 h-48">
-                                                            <img src="<?= BASE_URL ?>/public/uploads/<?= $data['gambar_rokok'] ?>" class="w-full h-full object-cover" alt="<?= $data['gambar_rokok'] ?>">
+                                                            <img src="<?= BASE_URL ?>/public/uploads/<?= $data['gambar_rokok'] ?>"
+                                                                class="w-full h-full object-cover"
+                                                                alt="<?= $data['gambar_rokok'] ?>">
                                                         </div>
                                                     </td>
 
@@ -116,16 +118,19 @@
                                                         <?= $data['type'] ?></td>
                                                     <td class="px-4 py-4 text-sm whitespace-nowrap">
                                                         <div class="flex items-center gap-x-6">
-                                                            <a href="<?= BASE_URL.'/rokok/update/'.$data['id_rokok'] ?>">
+                                                            <a
+                                                                href="<?= BASE_URL . '/rokok/update/' . $data['id_rokok'] ?>">
                                                                 <button
                                                                     class="text-gray-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
                                                                     Edit
                                                                 </button>
                                                             </a>
-                                                            <button
-                                                                class="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
-                                                                Hapus
-                                                            </button>
+                                                            <a href="<?= BASE_URL.'/rokok/destroy/'.$data['id_rokok'] ?>">
+                                                                <button
+                                                                    class="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
+                                                                    Hapus
+                                                                </button>
+                                                            </a>
                                                         </div>
                                                     </td>
                                                 </tr>

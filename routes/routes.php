@@ -15,7 +15,7 @@ class Routes
         $router->post('/rokok/store', ['RokokController', 'store']);
         $router->get('/rokok/update/{id}', ['RokokController', 'show']);
         $router->post('/rokok/edit/{id}', ['RokokController', 'update']);
-        $router->get('/rokok/delete/{id}', ['RokokController', 'destroy']);
+        $router->get('/rokok/destroy/{id}', ['RokokController', 'destroy']);
         $router->run();
     }
 }

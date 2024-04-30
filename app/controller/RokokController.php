@@ -127,4 +127,35 @@ class RokokController extends Controller
             $this->redirect('dashboard');
         }
     }
+
+    public function destroy(){
+        try {
+            $url = $_SERVER['REQUEST_URI'];
+            $result = explode('/', $url);
+
+            $id = end($result);
+            $data = $this->rokokmodels->getbyid($id);
+            if ($data['gambar_rokok']){
+                $deletefiles = $_SERVER['DOCUMENT_ROOT'] . '/backend-rokok-sampoerna/public/uploads/'.$data['gambar_rokok'];
+                var_dump($deletefiles);
+                if (unlink($deletefiles)){
+                    $result = $this->rokokmodels->destroy($id);
+                    if($result) {
+                        echo 'data berhasil terhapus';
+                    } else {
+                        echo 'data gagal dihapus';
+                    }
+                }
+                else {
+                    echo 'data tidak terhapus';
+                }
+            } else {
+                
+                echo 'data tidak ada';
+            }
+        } catch (\Exception $e) {
+            echo 'Error';
+            $this->redirect('dashboard');
+        }
+    }
 }
