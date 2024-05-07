@@ -23,7 +23,7 @@
                 <main>
                     <div class="flex flex-wrap items-center pt-8">
                         <div class="relative w-full px-4 max-w-full flex-grow flex-1">
-                            <h3 class="font-semibold text-black text-xl">Kategori Hewan</h3>
+                            <h3 class="font-semibold text-black text-xl">Data rokok di Sampoerna</h3>
                         </div>
                         <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
                             <a href="<?= BASE_URL . '/rokok/add' ?>">

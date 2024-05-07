@@ -178,22 +178,25 @@ class RokokController extends Controller
 
             $id = end($result);
             $data = $this->rokokmodels->getbyid($id);
-            if ($data['gambar_rokok']){
-                $deletefiles = $_SERVER['DOCUMENT_ROOT'] . '/backend-rokok-sampoerna/public/uploads/'.$data['gambar_rokok'];
-                var_dump($deletefiles);
-                if (unlink($deletefiles)){
+            var_dump($data['gambar_rokok']);
+            $location = $_SERVER['DOCUMENT_ROOT'] . '/backend-rokok-sampoerna/public/uploads';
+            $located = $location . '/' . $data['gambar_rokok'];
+            if (file_exists($located)){                
+                var_dump($located);
+                if (unlink($located)){
                     $result = $this->rokokmodels->destroy($id);
-                    if($result) {
-                        echo 'data berhasil terhapus';
+                    if ($result) {
+                        Message::setFlash('success', 'Data berhasil ditambahkan');
+                        $this->redirect('dashboard');
                     } else {
-                        echo 'data gagal dihapus';
+                        Message::setFlash('success', 'Data gagal ditambahkan');
+                        $this->redirect('rokok');
                     }
                 }
                 else {
                     echo 'data tidak terhapus';
                 }
             } else {
-                
                 echo 'data tidak ada';
             }
         } catch (\Exception $e) {
